@@ -1,5 +1,5 @@
 interface CommonResponseType {
-  data: TemplateStringsArray
+  data: any,
   status: number
 }
 

@@ -1,8 +1,6 @@
 import mongoose, { Document, Schema } from 'mongoose'
-import { TaskModel } from './task.interface'
 import { TasksStatus } from '../../constants/enum'
 
-export interface ITaskModel extends TaskModel, Document {}
 
 const TaskSchema: Schema = new mongoose.Schema(
   {
@@ -10,7 +8,7 @@ const TaskSchema: Schema = new mongoose.Schema(
       type: String,
       required: true,
       unique:true
-    },
+    },  
     isDeleted: { type: Boolean, default: false },
     status: {
       type: Number,
