@@ -1,11 +1,14 @@
 import express, { Request, Response } from 'express'
 import mongoose from 'mongoose'
+import cors from "cors"
 import { appConfig } from './config/appConfig'
 import taskRoutes from './router/tasksRouter'
 import userRoutes from './router/userRouter'
 import { errorHandler } from './middleWares/errorHandler'
 
 const app = express()
+
+app.use(cors())
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())

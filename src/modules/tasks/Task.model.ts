@@ -1,18 +1,21 @@
-import mongoose, { Document, Schema } from 'mongoose'
+import mongoose, { Schema } from 'mongoose'
 import { TasksStatus } from '../../constants/enum'
-
 
 const TaskSchema: Schema = new mongoose.Schema(
   {
     name: {
       type: String,
       required: true,
-      unique:true
-    },  
+      unique: true,
+    },
     isDeleted: { type: Boolean, default: false },
     status: {
       type: Number,
-      default:TasksStatus.pending
+      default: TasksStatus.pending,
+    },
+    userId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User',
     },
   },
   {
@@ -20,4 +23,4 @@ const TaskSchema: Schema = new mongoose.Schema(
   },
 )
 
-export default  mongoose.model('Task', TaskSchema)
+export default mongoose.model('Task', TaskSchema)
