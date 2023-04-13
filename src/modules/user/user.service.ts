@@ -19,6 +19,7 @@ const createUser = async (createUserData: CreateUserData) => {
 
 const userLogin = async (loginData: LoginData) => {
   const { email,password } = loginData
+  
   const user = await UserModel.findOne({ email })
   if (!user) {
     throw new Error('User Alredy Exists')
@@ -29,6 +30,7 @@ const userLogin = async (loginData: LoginData) => {
   }
 
   return ({
+    _id:user._id,
     name: user.name,
     email: user.email,
     token: generateToken(String(user._id)),

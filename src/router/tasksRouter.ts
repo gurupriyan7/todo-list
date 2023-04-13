@@ -13,7 +13,7 @@ const {
 const {protect}=authMiddleware
 
 router.post('/', protect, createTask)
-router.get('/', getAllTasks)
+router.get('/user/:id', getAllTasks)
 router.get('/:id', getTaskById)
 router.patch('/:id',protect, updateTask)
 router.delete('/:id',protect, deleteTask)
