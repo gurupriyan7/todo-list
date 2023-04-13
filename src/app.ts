@@ -1,12 +1,13 @@
 import express, { Request, Response } from 'express'
 import mongoose from 'mongoose'
 import { appConfig } from './config/appConfig'
-import taskRoutes from "./router/tasksRouter"
-
+import taskRoutes from './router/tasksRouter'
+import userRoutes from './router/userRouter'
+import { errorHandler } from './middleWares/errorHandler'
 
 const app = express()
 
-app.use(express.urlencoded({extended:true}))
+app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
 mongoose
@@ -18,12 +19,10 @@ mongoose
     console.log(`an error with database connection ${error}`)
   })
 
-  app.use("/api/tasks",taskRoutes)
+app.use('/api/tasks', taskRoutes)
+app.use('/api/user', userRoutes)
 
-app.use((req :Request,res:Response)=>{
-  const error = new Error("not found")
+app.use(errorHandler)
 
-  return res.status(404).json({message:error.message})
-})
 
 export default app

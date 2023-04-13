@@ -31,11 +31,11 @@ const userLogin = async (loginData: LoginData) => {
   return ({
     name: user.name,
     email: user.email,
-    phoneNumber: user.phoneNumber,
     token: generateToken(String(user._id)),
   })
 }
 
 export const userService = {
   createUser,
+  userLogin
 }

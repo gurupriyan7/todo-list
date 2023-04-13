@@ -1,5 +1,6 @@
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
+import { appConfig } from '../config/appConfig'
 
 export const bcryptPassword = async (password: string) => {
   // Hash-password
@@ -18,5 +19,5 @@ export const generateToken = (id: string) => {
   const options = {
     expiresIn: '12h',
   }
-  return jwt.sign({ id }, process.env.JWT_ACCESS_TOKEN_SECRET, options)
+  return jwt.sign({ id }, appConfig.jwtSecret, options)
 }
