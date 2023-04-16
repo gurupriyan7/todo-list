@@ -1,9 +1,17 @@
-# todo-list
-node.js-express-typescript-mongoose -todolist- api
+Todo List App
+This is a simple Todo List App built using Node.js, Express, Mongoose, JWT authentication, TypeScript.
 
-this todo list api , with manage tasks and authentication for todo list management
+Features :-
+User authentication with JWT
+Create, Read, Update and Delete Todo tasks
+User can view and edit only their own tasks
 
-Technologies used,
-Express,
-mongodb atlas(Mongoose) as dataBase
-use Jwt for authentication
+Installation :-
+Clone the repository
+Install dependencies with yarn install
+Set environment variables:
+PORT: port on which server should run
+MONGO_URL: MongoDB connection string
+JWT_ACCESS_TOKEN_SECRETT: secret key for JWT authentication
+
+Run the server with yarn start
